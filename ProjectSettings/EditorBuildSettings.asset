@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/ArthurLobby.unity
+    guid: 0138266ad52f2c84c8caf6f63a5fc354
+  - enabled: 1
+    path: Assets/Scenes/ArthurScene.unity
+    guid: 497f7bb9c43067547bf51f87640d9604
   m_configObjects: {}
