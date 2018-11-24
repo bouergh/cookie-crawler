@@ -10,6 +10,12 @@ public class PlayerController : NetworkBehaviour {
         Debug.Log("Player create");
 	}
 
+    [Command]
+    void CmdSendSpace() {
+        Debug.Log("SPACE RPC");
+
+    }
+
 
 
 	// Update is called once per frame
@@ -20,7 +26,7 @@ public class PlayerController : NetworkBehaviour {
           }
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            print("YOLO");
+            CmdSendSpace();
           }
 	}
 }
