@@ -12,8 +12,7 @@ public class PlayerController : NetworkBehaviour {
 
     [Command]
     void CmdSendSpace() {
-        Debug.Log("SPACE RPC");
-
+        Debug.Log("SPACE RPC from : " + this.netId);
     }
 
 
