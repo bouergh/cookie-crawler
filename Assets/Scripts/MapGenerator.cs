@@ -9,10 +9,10 @@ public class MapGenerator : MonoBehaviour {
     public ColorToTile[] colorMappings;
     public Tilemap baseMap;
     public Tilemap collisionMap;
+    public GameObject player;
 
     // Use this for initialization
     void Start () {
-        Debug.Log("START");
         GenerateLevel();
 	}
 	
@@ -40,6 +40,11 @@ public class MapGenerator : MonoBehaviour {
                 else
                     collisionMap.SetTile(new Vector3Int(x, y, 0), colorMapping.tile);
                 break;
+            }
+           
+            if (pixelColor.Equals(Color.green))
+            {
+                player.transform.position = new Vector3Int(x, y, 0);
             }
         }
     }

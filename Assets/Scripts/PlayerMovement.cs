@@ -9,12 +9,7 @@ class PlayerMovement : MonoBehaviour
 
     //Inspector Variables
     public Tilemap traversableMap;
-    public Vector3 initialPosition;
     private int cpt = TIME_OUT;
-    void Start()
-    {
-        transform.position = initialPosition;
-    }
 
     void Update()
     {
