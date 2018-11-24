@@ -31,6 +31,37 @@ public class LobbyManager : NetworkManager {
 			StartMatchMaker();
 			matchMaker.ListMatches(0, 10, "", true, 0, 0, OnMatchList);
 		}
+
+		if(numPlayers == matchSize){
+			StartGame();
+		}
+	}
+
+	public void StartGame(){
+		foreach(PlayerIdentification pid in FindObjectsOfType<PlayerIdentification>()){
+			int num = (int)pid.netId.Value;//a tester
+			GameObject go = pid.gameObject;
+			Color col = PickColor(num);
+			pid.playerNumber = num; 
+			pid.RpcAssignValues(num, go, col);
+		}
+	}
+
+	public Color PickColor(int playerNumber){
+		int roundNum = ((playerNumber-1) % 4)+1;
+		switch(roundNum){
+			case 1:
+              return Color.red;
+            case 2:
+              return Color.blue;
+			case 3:
+              return Color.green;
+            case 4:
+              return Color.yellow;
+          	default:
+              Debug.Log("no good color pickable !!!!");
+			  return Color.grey;
+		}
 	}
 
 	public void OnMatchList(bool success, string extendedInfo, List<MatchInfoSnapshot> matches)

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 212121058879378780}
   m_Layer: 0
   m_Name: ArthurPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 1431711767873610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,6 +53,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14e7693fe8ba6a4691a905e0dd834e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: -1
+  col: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  sprites:
+  - {fileID: 21300000, guid: d4513d0568a3a0445a6392b5775e807f, type: 3}
+  - {fileID: 21300000, guid: 756cb99e3f8cdb74fab9203c46165574, type: 3}
+  - {fileID: 21300000, guid: e27890fdaff88f9448d9a695b44ae599, type: 3}
+  - {fileID: 21300000, guid: e9595fd4f2652574da71d624c91b6573, type: 3}
 --- !u!114 &114925864904064110
 MonoBehaviour:
   m_ObjectHideFlags: 1
