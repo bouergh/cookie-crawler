@@ -6,7 +6,6 @@ using UnityEngine.Tilemaps;
 class PlayerMovement : MonoBehaviour
 {
     const int TIME_OUT = 10;
-
     //Inspector Variables
     public Tilemap traversableMap;
     private int cpt = TIME_OUT;
