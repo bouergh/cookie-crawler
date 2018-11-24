@@ -217,7 +217,12 @@ Prefab:
     - target: {fileID: 114236066037149138, guid: 511d8e6395f16de4e86cad5e84c088d3,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114954231598936052, guid: 511d8e6395f16de4e86cad5e84c088d3,
+        type: 2}
+      propertyPath: m_PlayerSpawnMethod
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 511d8e6395f16de4e86cad5e84c088d3, type: 2}
@@ -404,7 +409,7 @@ GameObject:
   - component: {fileID: 1577842340}
   - component: {fileID: 1577842339}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LobbyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

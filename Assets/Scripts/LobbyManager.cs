@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
-using System.Collections.Generic;
 using UnityEngine.Networking.NetworkSystem;
 
 public class LobbyManager : NetworkManager {
 
+	public static new LobbyManager singleton;
 	public bool inLobby = true;
 	public string cookieMatchName = "cookie";
 	// Use this for initialization
+
+	void Awake()
+	{
+		if(singleton == null){
+			singleton = this;
+		}else{
+			Destroy(gameObject);
+		}
+	}
 	void Start () {
 		inLobby = true;
 	}
@@ -52,4 +61,13 @@ public class LobbyManager : NetworkManager {
         }
         OnServerAddPlayer(conn, playerControllerId, extraMessageReader);
     }
+
+	// public void SetPlayerNumber(GameObject player){
+	// 	int playerNumber = numPlayers;
+	// 	Debug.Log("player number is "+playerNumber);
+	// 	player.GetComponent<PlayerIdentification>().playerNumber = playerNumber;;
+	// }
+	
+	
+	
 }
