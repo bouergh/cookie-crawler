@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114925864904064110}
   - component: {fileID: 114736587401453868}
   - component: {fileID: 212121058879378780}
+  - component: {fileID: 114984384799843890}
   m_Layer: 0
   m_Name: ArthurPlayer
   m_TagString: Player
@@ -92,6 +93,17 @@ MonoBehaviour:
     i15: 91
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114984384799843890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431711767873610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5920d79fe378b468a87d078a7ed4e419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212121058879378780
 SpriteRenderer:
   m_ObjectHideFlags: 1

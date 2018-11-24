@@ -62,6 +62,7 @@ public class PlayerIdentification : NetworkBehaviour {
 
 	[ClientRpc]
 	public void RpcAssignValues(int num, GameObject go, Color colr){
+		LobbyManager.singleton.inLobby = false;
 		Debug.Log("player number is "+num);
 		playerNumber = num;
 		col =  PickColor(playerNumber);

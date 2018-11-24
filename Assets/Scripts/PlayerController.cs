@@ -1,4 +1,4 @@
-﻿        using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -14,13 +14,14 @@ public class PlayerController : NetworkBehaviour {
     [Command]
     void CmdSendSpaceDown() {
         Debug.Log("SPACE DOWN RPC from : " + this.netId);
-        CookieController.singleton.spaceDownFor(int.Parse(this.netId.ToString()));
+        //CookieController.singleton.spaceDownFor(int.Parse(this.netId.ToString()));
+        CookieController.singleton.spaceDownFor(GetComponent<PlayerIdentification>().playerNumber-1);
     }
 
     [Command]
     void CmdSendSpaceUp() {
         Debug.Log("SPACE UP RP from : " + this.netId);
-        CookieController.singleton.spaceUpFor(int.Parse(this.netId.ToString()));
+        CookieController.singleton.spaceUpFor(GetComponent<PlayerIdentification>().playerNumber-1);
     }
 
 

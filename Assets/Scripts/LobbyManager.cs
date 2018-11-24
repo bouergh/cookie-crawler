@@ -56,6 +56,7 @@ public class LobbyManager : NetworkManager {
 
 
 	public void StartGame(){
+		inLobby = false;
 		Debug.Log("starting game !!!");
 		foreach(PlayerIdentification pid in FindObjectsOfType<PlayerIdentification>()){
 			int num = pid.playerNumber;//a tester

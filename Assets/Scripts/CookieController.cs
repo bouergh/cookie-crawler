@@ -12,7 +12,7 @@ public class CookieController : MonoBehaviour {
     public Vector3 initialPosition;
 
     // List inputs for action and from network
-    private List<int> inputs = new List<int>();
+//    private List<int> inputs = new List<int>();
 
     // List input down
     private bool[] inputDown = new bool[4];
@@ -111,7 +111,7 @@ public class CookieController : MonoBehaviour {
             transform.position = newPos;
         }
 
-        transform.rotation = Quaternion.LookRotation(action, Vector3.forward);
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, action);
         
     }
 
