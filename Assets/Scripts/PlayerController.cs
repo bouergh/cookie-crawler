@@ -5,9 +5,12 @@ using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour {
 
+    public Vector3 cookieOffsetPos;
+
     // Use this for initialization
     void Start()
     {
+        cookieOffsetPos = CookieController.singleton.transform.position - transform.position;
         Debug.Log("Player create");
     }
 
@@ -32,6 +35,7 @@ public class PlayerController : NetworkBehaviour {
             return;
         }
         checkInput();
+        transform.position = CookieController.singleton.transform.position - cookieOffsetPos;
 	}
 
     // Get if space is down

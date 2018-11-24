@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114736587401453868}
   - component: {fileID: 212121058879378780}
   - component: {fileID: 114984384799843890}
+  - component: {fileID: 114500454277320996}
   m_Layer: 0
   m_Name: ArthurPlayer
   m_TagString: Player
@@ -43,6 +44,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114500454277320996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431711767873610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 0
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114736587401453868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5920d79fe378b468a87d078a7ed4e419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cookieOffsetPos: {x: 0, y: 0, z: 0}
 --- !u!212 &212121058879378780
 SpriteRenderer:
   m_ObjectHideFlags: 1
