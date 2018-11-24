@@ -5,22 +5,25 @@ using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour {
 
+    public Vector3 cookieOffsetPos;
+
     // Use this for initialization
     void Start()
     {
+        cookieOffsetPos = CookieController.singleton.transform.position - transform.position;
         Debug.Log("Player create");
     }
 
     [Command]
     void CmdSendSpaceDown() {
-        Debug.Log("SPACE DOWN RPC from : " + this.netId);
+        //Debug.Log("SPACE DOWN RPC from : " + this.netId);
         //CookieController.singleton.spaceDownFor(int.Parse(this.netId.ToString()));
         CookieController.singleton.spaceDownFor(GetComponent<PlayerIdentification>().playerNumber-1);
     }
 
     [Command]
     void CmdSendSpaceUp() {
-        Debug.Log("SPACE UP RP from : " + this.netId);
+        //Debug.Log("SPACE UP RP from : " + this.netId);
         CookieController.singleton.spaceUpFor(GetComponent<PlayerIdentification>().playerNumber-1);
     }
 
@@ -32,6 +35,7 @@ public class PlayerController : NetworkBehaviour {
             return;
         }
         checkInput();
+        transform.position = CookieController.singleton.transform.position - cookieOffsetPos;
 	}
 
     // Get if space is down

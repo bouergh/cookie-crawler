@@ -219,6 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   traversableMap: {fileID: 0}
   initialPosition: {x: 0, y: 0, z: 0}
+  _checkTime: 0.2
 --- !u!114 &114168700609278796
 MonoBehaviour:
   m_ObjectHideFlags: 1

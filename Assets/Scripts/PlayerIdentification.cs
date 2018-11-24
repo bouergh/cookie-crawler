@@ -55,6 +55,11 @@ public class PlayerIdentification : NetworkBehaviour {
 				txt.text = "Welcome to the Game !\n You are player "+playerNumber+",\n your color is "+color+".";
 			}
 		}
+		foreach(Image pic in Object.FindObjectsOfType<Image>()){
+			if(pic.name == "PlayerImage"){
+				pic.color = col;
+			}
+		}
 		//CmdAllChangeColor();//etape 1
 	}
 
@@ -68,44 +73,13 @@ public class PlayerIdentification : NetworkBehaviour {
 		col =  PickColor(playerNumber);
 		go.GetComponent<SpriteRenderer>().color = colr;
 		go.GetComponent<SpriteRenderer>().sprite = sprites[num-1];
+		foreach(Text txt in Object.FindObjectsOfType<Text>()){
+			if(txt.name == "PlayerText"){
+				txt.text = "";
+			}
+		}
 	}
 
-	// //etape 2
-	// [Command]
-	// public void CmdAllChangeColor(){
-	// 	foreach (PlayerIdentification pid in FindObjectsOfType<PlayerIdentification>())
-	// 		{
-	// 			pid.RpcAllChangeColor();
-	// 		}
-	// }
-
-	// //etape 3
-	// [ClientRpc]
-	// public void RpcAllChangeColor(){
-	// 	CmdChangeColor(gameObject, col, playerNumber);
-	// }
-
-	// //etape 4
-	// [Command]
-	// public void CmdChangeColor(GameObject go, Color colr, int pn){
-	// 	go.GetComponent<SpriteRenderer>().color = colr;
-	// 	Debug.Log("player number is "+pn);
-	// 	go.GetComponent<SpriteRenderer>().sprite = sprites[pn-1];
-	// 	RpcChangeColor(go, colr, pn);
-	// }
-
-	// //etape 5 //sans doute trop lourd on pourrait faire 2 ou 3 fonctions en une sur le serv au lieu de 2*Cmd/Rpc
-	// [ClientRpc]
-	// public void RpcChangeColor(GameObject go, Color colr, int pn){
-	// 	go.GetComponent<SpriteRenderer>().color = colr;
-	// 	go.GetComponent<SpriteRenderer>().sprite = sprites[pn-1];
-	// }
-
-	// [Command]
-	// public void CmdPickPlayerNumber(GameObject player){
-	// 	LobbyManager.singleton.SetPlayerNumber(player);
-	// 	Debug.Log("player "+netId+" number is "+playerNumber);
-	// }
 
 	public Color PickColor(int playerNumber){
 		int roundNum = ((playerNumber-1) % 4)+1;
