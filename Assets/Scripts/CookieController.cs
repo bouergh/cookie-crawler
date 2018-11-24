@@ -18,7 +18,7 @@ public class CookieController : MonoBehaviour {
     private bool[] inputDown = new bool[4];
 
     // Time in second between check for action
-    private int _checkTime = 1;
+    public float _checkTime = 1;
 
 
     // Initialization
