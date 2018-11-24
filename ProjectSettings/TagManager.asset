@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Cookie
+    uniqueID: 1022855773
+    locked: 0

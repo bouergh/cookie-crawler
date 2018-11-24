@@ -111,7 +111,7 @@ public class CookieController : MonoBehaviour {
             transform.position = newPos;
         }
 
-        transform.rotation = Quaternion.LookRotation(action, Vector3.forward);
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, action);
         
     }
 
