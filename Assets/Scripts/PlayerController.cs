@@ -36,14 +36,28 @@ public class PlayerController : NetworkBehaviour {
 
     // Get if space is down
     void checkInput() {
+#if UNITY_STANDALONE || UNITY_STANDALONE_OSX
         if (Input.GetKeyDown(KeyCode.Space))
         {
             CmdSendSpaceDown();
         }
 
-        if (Input.GetKeyUp(KeyCode.Space)) {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
             CmdSendSpaceUp();
         }
+
+#elif UNITY_IOS || UNITY_ANDROID
+        Touch touch = Input.GetTouch(0);
+        if(touch.phase == TouchPhase.Began) {
+            CmdSendSpaceDown();
+        }
+
+        if(touch.phase == TouchPhase.Ended) {
+            CmdSendSpaceUp();
+        }
+#endif
+
 
     }
 }

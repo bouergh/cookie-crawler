@@ -41,11 +41,24 @@ public class LobbyManager : NetworkManager {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Space) && inLobby){ //hardcode this button FOREVER :o
-			Debug.Log("play the dam game");
-			StartMatchMaker();
-			matchMaker.ListMatches(0, 10, "", true, 0, 0, OnMatchList);
-		}
+#if UNITY_STANDALONE || UNITY_STANDALONE_OSX
+        if (Input.GetKeyDown(KeyCode.Space) && inLobby){ //hardcode this button FOREVER :o
+            Debug.Log("play the dam game");
+            StartMatchMaker();
+            matchMaker.ListMatches(0, 10, "", true, 0, 0, OnMatchList);
+        }
+
+#elif UNITY_IOS || UNITY_ANDROID
+        Touch touch = Input.GetTouch(0);
+        if ((touch.phase == TouchPhase.Began) && inLobby)
+        { //hardcode this button FOREVER :o
+            Debug.Log("play the dam game");
+            StartMatchMaker();
+            matchMaker.ListMatches(0, 10, "", true, 0, 0, OnMatchList);
+        }
+#endif
+
+
 
 		// if(numPlayers == matchSize){
 		// 	inLobby = false;
