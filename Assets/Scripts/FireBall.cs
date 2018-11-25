@@ -10,6 +10,7 @@ public class FireBall : MonoBehaviour {
         dir = Vector3.Normalize(CookieController.singleton.transform.position - gameObject.transform.position);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        Destroy(this, 2f);
     }
 
 	// Update is called once per frame

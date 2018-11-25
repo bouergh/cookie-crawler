@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpikeTrap : MonoBehaviour {
 
-    const int TIME_DANGER = 100;
+    const int TIME_DANGER = 200;
     float cpt = 0;
     Animator animator;
     bool isDangerous;
