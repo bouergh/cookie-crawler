@@ -123,7 +123,7 @@ public class CookieController : NetworkBehaviour {
 
         }
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, action);
+        //transform.rotation = Quaternion.LookRotation(Vector3.forward, action);
 
     }
 
