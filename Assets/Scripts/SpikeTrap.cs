@@ -47,12 +47,15 @@ public class SpikeTrap : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other)
     {
+        
+        Debug.Log("collision spike and cookie or something else");
         Debug.Log("ON TRIGGER STAY 2D");
         Debug.Log(isDangerous);
         if (isDangerous)
         {
             Debug.Log("IS DANGEROUS!!");
             CookieController.singleton.transform.position = CookieController.singleton.initialPosition;
+            //CookieController.singleton.Death();
             Debug.Log("POSITION SET!!");
         }
     }

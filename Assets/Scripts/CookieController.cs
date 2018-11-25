@@ -49,6 +49,7 @@ public class CookieController : NetworkBehaviour {
     void Start () {
         InvokeRepeating("choiceAction", 0, _checkTime);
         initialPosition = gameObject.transform.position;
+        //cookie = transform.Find("Cookie");
 }
 
     // Store input
@@ -123,13 +124,17 @@ public class CookieController : NetworkBehaviour {
 
         }
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, action);
+        //transform.rotation = Quaternion.LookRotation(Vector3.forward, action);
 
     }
 
     [ClientRpc]
     public void RpcMovePlayer(GameObject player, Vector3 action) {
         player.transform.position += action;
+    }
+
+    public void Death(){
+        transform.position = initialPosition;
     }
 
 }

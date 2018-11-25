@@ -24,6 +24,8 @@ public class FireBall : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CookieController.singleton.transform.position = CookieController.singleton.initialPosition;
+        Debug.Log("collision fireball and cookie or something else");
+        CookieController.singleton.transform.parent.position = CookieController.singleton.initialPosition;
+        //CookieController.singleton.Death();
     }
 }
