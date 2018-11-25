@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.Tilemaps;
 
-public class CookieController : MonoBehaviour {
+public class CookieController : NetworkBehaviour {
 
     public static CookieController singleton;
 
@@ -11,8 +12,12 @@ public class CookieController : MonoBehaviour {
     public Tilemap traversableMap;
     public Vector3 initialPosition;
 
+    public Vector3 cookieOffsetPos;
+
+    public PlayerController[] players;
+
     // List inputs for action and from network
-//    private List<int> inputs = new List<int>();
+    //    private List<int> inputs = new List<int>();
 
     // List input down
     private bool[] inputDown = new bool[4];
@@ -43,7 +48,8 @@ public class CookieController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         InvokeRepeating("choiceAction", 0, _checkTime);
-	}
+        cookieOffsetPos = CookieController.singleton.transform.position - transform.position;
+    }
 
     // Store input
     //public void storeInput(int input) {
@@ -68,6 +74,10 @@ public class CookieController : MonoBehaviour {
 
     public void spaceUpFor(int player) {
         inputDown[player] = false;
+    }
+
+    public void setPlayers() {
+        players = FindObjectsOfType<PlayerController>();
     }
 
     // Choice action to execute
@@ -100,20 +110,34 @@ public class CookieController : MonoBehaviour {
         MoveForward(vector);
     }
 
+    [Server]
     void MoveForward(Vector3Int action)
     {
         Vector3Int newPos;
 
         newPos = Vector3Int.RoundToInt(transform.position) + action;
 
+
         if (traversableMap.HasTile(newPos))
         {
             transform.position = newPos;
+            foreach (PlayerController player in players)
+            {
+                RpcMovePlayer(player.gameObject, action);
+            }
+
         }
 
         transform.rotation = Quaternion.LookRotation(Vector3.forward, action);
-        
+
     }
+
+    [ClientRpc]
+    public void RpcMovePlayer(GameObject player, Vector3 action) {
+        player.transform.position += action;
+    }
+
+
 
     // Update is called once per frame
     void Update () {

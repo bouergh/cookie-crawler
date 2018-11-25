@@ -83,6 +83,7 @@ public class LobbyManager : NetworkManager {
 			pid.playerNumber = num; 
 			pid.RpcAssignValues(num, go, col);
 		}
+        CookieController.singleton.setPlayers();
 	}
 
 	public Color PickColor(int playerNumber){
