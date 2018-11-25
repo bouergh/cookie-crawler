@@ -35,7 +35,7 @@ public class PlayerController : NetworkBehaviour {
             return;
         }
         checkInput();
-        transform.position = CookieController.singleton.transform.position - cookieOffsetPos;
+
 	}
 
     // Get if space is down
