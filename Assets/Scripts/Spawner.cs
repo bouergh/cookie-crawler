@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Spawner : MonoBehaviour {
+public class Spawner : NetworkBehaviour
+{
 
     public GameObject toSpawn;
     const int COOLDOWN = 100;
@@ -22,7 +24,9 @@ public class Spawner : MonoBehaviour {
     void Spawn()
     {
         if(PlayerInRange())
-            Instantiate(toSpawn, gameObject.transform.position, Quaternion.identity);
+            NetworkServer.Spawn(Instantiate(toSpawn, gameObject.transform.position, Quaternion.identity));
+
+
     }
 
     bool PlayerInRange()

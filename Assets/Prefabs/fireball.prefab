@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: 212627210216800490}
   - component: {fileID: 95914799999964738}
   - component: {fileID: 114457552032737542}
+  - component: {fileID: 114754408738771620}
+  - component: {fileID: 114743027631032190}
+  - component: {fileID: 61279714422399858}
   m_Layer: 0
   m_Name: fireball
   m_TagString: Untagged
@@ -42,6 +45,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61279714422399858
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163953188204616}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!95 &95914799999964738
 Animator:
   serializedVersion: 3
@@ -71,6 +99,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f4636e8e6aa4d499cd9600160a59df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114743027631032190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163953188204616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114754408738771620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163953188204616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 197
+    i1: 188
+    i2: 220
+    i3: 102
+    i4: 223
+    i5: 72
+    i6: 172
+    i7: 164
+    i8: 153
+    i9: 214
+    i10: 204
+    i11: 92
+    i12: 237
+    i13: 218
+    i14: 203
+    i15: 137
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!212 &212627210216800490
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -86,7 +167,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3f2fd5107d880d148994c3045153ad6b, type: 2}
+  - {fileID: 2100000, guid: e267fa11a91c69c4284a467be93f5705, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
