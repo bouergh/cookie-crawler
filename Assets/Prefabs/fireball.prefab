@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4110926467136612}
   - component: {fileID: 212627210216800490}
   - component: {fileID: 95914799999964738}
-  - component: {fileID: 114457552032737542}
+  - component: {fileID: 114790812428799390}
   m_Layer: 0
   m_Name: fireball
   m_TagString: Untagged
@@ -60,7 +60,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114457552032737542
+--- !u!114 &114790812428799390
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3f2fd5107d880d148994c3045153ad6b, type: 2}
+  - {fileID: 2100000, guid: e267fa11a91c69c4284a467be93f5705, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

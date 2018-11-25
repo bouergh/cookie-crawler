@@ -43,7 +43,8 @@ public class CookieController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         InvokeRepeating("choiceAction", 0, _checkTime);
-	}
+        initialPosition = gameObject.transform.position;
+}
 
     // Store input
     //public void storeInput(int input) {
@@ -75,11 +76,6 @@ public class CookieController : MonoBehaviour {
         bool[] i = inputDown;
 
         Vector3Int vector = new Vector3Int();
-
-        // 1(0) Left (1,0,0)
-        // 2(1) Down (0,-1,0)
-        // 3(2) Up   (0,1,0)
-        // 4(3) Right(-1,0,0)
 
         if(i[0]) {
             vector.x += -1;
@@ -115,8 +111,4 @@ public class CookieController : MonoBehaviour {
         
     }
 
-    // Update is called once per frame
-    void Update () {
-
-    }
 }
