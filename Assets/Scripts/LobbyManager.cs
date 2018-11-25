@@ -9,7 +9,7 @@ public class LobbyManager : NetworkManager {
 
 	public static new LobbyManager singleton;
 	public bool inLobby = true;
-	public string cookieMatchName = "cookie";
+	public string cookieMatchName = "coookie";
 	public Transform[] spawnPositions;
 	public static bool gameStarted = false;
 	public float spaceCooldown = 3f;

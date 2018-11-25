@@ -6,11 +6,17 @@ using UnityEngine.Tilemaps;
 
 public class CookieController : NetworkBehaviour {
 
+    const int TIME_FREEZE = 50;
+    int cpt_freeze = 0;
+    bool frozen = false;
+    public bool canMove = true;
+
     public static CookieController singleton;
 
     //Inspector Variables
     public Tilemap traversableMap;
     public Vector3 initialPosition;
+    ImageShow imgShow;
 
     public Vector3 cookieOffsetPos;
 
@@ -49,24 +55,8 @@ public class CookieController : NetworkBehaviour {
     void Start () {
         InvokeRepeating("choiceAction", 0, _checkTime);
         initialPosition = gameObject.transform.position;
-}
-
-    // Store input
-    //public void storeInput(int input) {
-    //    string inputsStr = "";
-    //    this.inputs.Add(input);
-    //    foreach(int i in inputs) {
-    //        inputsStr += i.ToString() + ",";
-    //    }
-    //    Debug.Log("Current inputs : " + inputsStr);
-    //}
-
-    //public void removeActionIfExist(int input)
-    //{
-    //    if (inputs.Contains(input)) {
-    //        inputs.Remove(input);
-    //    }
-    //}
+        imgShow = FindObjectOfType<ImageShow>();
+    }
 
     public void spaceDownFor(int player) {
         inputDown[player] = true;
@@ -108,6 +98,7 @@ public class CookieController : NetworkBehaviour {
     [Server]
     void MoveForward(Vector3Int action)
     {
+        if (!canMove) { return; }
         Vector3Int newPos;
 
         newPos = Vector3Int.RoundToInt(transform.position) + action;
@@ -130,6 +121,33 @@ public class CookieController : NetworkBehaviour {
     [ClientRpc]
     public void RpcMovePlayer(GameObject player, Vector3 action) {
         player.transform.position += action;
+    }
+    
+    void Update()
+    {
+        if(frozen) {
+            Debug.Log("FROZEN");
+            if (TIME_FREEZE < cpt_freeze)
+            {
+                Debug.Log("UNFREEZE");
+                frozen = false;
+                imgShow.ToggleOff();
+                cpt_freeze = 0;
+            }
+
+            cpt_freeze++;
+        }
+    }
+
+    public void TriggerDeath()
+    {
+        if (!frozen)
+        { 
+            Debug.Log("TRIGGERED DEATH");
+            singleton.transform.position = singleton.initialPosition;
+            imgShow.ToggleOn();
+            frozen = true;
+        }
     }
 
 }
