@@ -71,8 +71,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f4636e8e6aa4d499cd9600160a59df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  traversableMap: {fileID: 0}
-  player: {fileID: 0}
 --- !u!212 &212627210216800490
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -88,7 +86,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3f2fd5107d880d148994c3045153ad6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,8 +103,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1674198687
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 99c6021635f3481489ee41af2ac5c8de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

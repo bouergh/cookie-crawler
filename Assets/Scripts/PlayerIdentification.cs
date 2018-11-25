@@ -21,10 +21,6 @@ public class PlayerIdentification : NetworkBehaviour {
 		Identify();
 	}
 
-	
-
-	
-	
 	public int PlayerNumber(){
 		//return (int)netId.Value;
 		// //int num = LobbyManager.singleton.numPlayers;
