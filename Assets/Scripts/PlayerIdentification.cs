@@ -13,6 +13,7 @@ public class PlayerIdentification : NetworkBehaviour {
 
 
 	public Sprite[] sprites;
+    public Sprite[] playerSprites;
 
 	// Use this for initialization
 	void Start () {
@@ -43,7 +44,6 @@ public class PlayerIdentification : NetworkBehaviour {
 
 
 	public void Identify(){
-		//Debug.Log(netId);
 		playerNumber = PlayerNumber();
 		col =  PickColor(playerNumber);
 		foreach(Text txt in Object.FindObjectsOfType<Text>()){
@@ -54,7 +54,7 @@ public class PlayerIdentification : NetworkBehaviour {
 		}
 		foreach(Image pic in Object.FindObjectsOfType<Image>()){
 			if(pic.name == "PlayerImage"){
-				pic.color = col;
+                pic.sprite = playerSprites[playerNumber - 1];
 			}
 		}
 		//CmdAllChangeColor();//etape 1
