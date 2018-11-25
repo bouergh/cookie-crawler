@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Fireball
+  m_Name: fireball
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 99c6021635f3481489ee41af2ac5c8de, type: 3}
-    - time: 0.2
+    - time: 0.21666667
       value: {fileID: 21300000, guid: 16d5d4f3e7dc38248b05e2c7b9eccc5e, type: 3}
     - time: 0.41666666
       value: {fileID: 21300000, guid: 99c6021635f3481489ee41af2ac5c8de, type: 3}
