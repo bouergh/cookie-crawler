@@ -11,6 +11,7 @@ public class LobbyManager : NetworkManager {
 	public bool inLobby = true;
 	public string cookieMatchName = "cookie";
 	public Transform[] spawnPositions;
+	public static bool gameStarted = false;
 
 	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
@@ -68,7 +69,8 @@ public class LobbyManager : NetworkManager {
 
 
 
-	public void StartGame(){
+	public IEnumerator StartGame(){
+		yield return new WaitForSeconds(2f);
 		inLobby = false;
 		Debug.Log("starting game !!!");
 		foreach(PlayerIdentification pid in FindObjectsOfType<PlayerIdentification>()){
@@ -128,5 +130,8 @@ public class LobbyManager : NetworkManager {
 
 	
 	
-	
+	public void Quit(){
+        StopHost();
+		inLobby = true;
+	}
 }

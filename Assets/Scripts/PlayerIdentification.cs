@@ -11,6 +11,7 @@ public class PlayerIdentification : NetworkBehaviour {
 	public Color col = Color.grey;
 	string color = "NONE";
 
+
 	public Sprite[] sprites;
 
 	// Use this for initialization
@@ -37,7 +38,7 @@ public class PlayerIdentification : NetworkBehaviour {
 	public void CmdSyncPlayerNumber(int pn){
 		playerNumber = pn;
 		RpcSyncPlayerNumber(pn);
-		if(pn == 4) LobbyManager.singleton.StartGame();
+		if(pn == 4) StartCoroutine(LobbyManager.singleton.StartGame());
 	}
 	[ClientRpc]
 	public void RpcSyncPlayerNumber(int pn){
