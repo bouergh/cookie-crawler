@@ -43,7 +43,7 @@ public class CookieController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         InvokeRepeating("choiceAction", 0, _checkTime);
-	}
+    }
 
     // Store input
     //public void storeInput(int input) {
@@ -112,6 +112,10 @@ public class CookieController : MonoBehaviour {
         }
 
         transform.rotation = Quaternion.LookRotation(Vector3.forward, action);
+        PlayerController[] players = GetComponents<PlayerController>();
+        foreach(PlayerController player in players) {
+            Debug.Log("PLAYER : " + player.ToString());
+        }
         
     }
 
