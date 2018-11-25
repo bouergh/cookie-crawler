@@ -25,38 +25,24 @@ public class SpikeTrap : MonoBehaviour {
         if (cpt >= TIME_DANGER)
         {
             isDangerous = !isDangerous;
-            //Debug.Log("SET DANGER " + isDangerous);
             animator.SetBool("isDanger", isDangerous);
             cpt = 0;
         }
 
         cpt++;
-        //Debug.Log("UPDATING CPT");
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("ON TRIGGER ENTER 2D");
         if (isDangerous)
-        {
-            //Debug.Log("IS DANGEROUS");
-            CookieController.singleton.transform.position = CookieController.singleton.initialPosition;
-        }
+            CookieController.singleton.TriggerDeath();
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("ON TRIGGER STAY 2D");
-        Debug.Log(isDangerous);
         if (isDangerous)
-        {
-            Debug.Log("IS DANGEROUS!!");
-            CookieController.singleton.transform.position = CookieController.singleton.initialPosition;
-            Debug.Log("POSITION SET!!");
-        }
+            CookieController.singleton.TriggerDeath();
     }
-
 
 
 }
