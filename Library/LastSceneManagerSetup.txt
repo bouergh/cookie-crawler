@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/ArthurLobby.unity
-=======
-- path: Assets/Scenes/RoseScene.unity
->>>>>>> 23f942bce0d5e41cbb0e1d0c4cb834b59fc0086d
+- path: Assets/Scenes/OnlineScene.unity
   isLoaded: 1
   isActive: 1
