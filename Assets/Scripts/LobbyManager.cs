@@ -11,6 +11,9 @@ public class LobbyManager : NetworkManager {
 	public bool inLobby = true;
 	public string cookieMatchName = "cookie";
 	public Transform[] spawnPositions;
+	public static bool gameStarted = false;
+	public float spaceCooldown = 3f;
+	private float spaceTimer = 0f;
 
 	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
@@ -42,23 +45,24 @@ public class LobbyManager : NetworkManager {
 	// Update is called once per frame
 	void Update () {
 #if UNITY_STANDALONE || UNITY_STANDALONE_OSX
-        if (Input.GetKeyDown(KeyCode.Space) && inLobby){ //hardcode this button FOREVER :o
-            Debug.Log("play the dam game");
+        if (Input.GetKeyDown(KeyCode.Space) && inLobby && !IsClientConnected() && spaceTimer >= spaceCooldown){ //hardcode this button FOREVER :o
+            spaceTimer = 0f;
+			Debug.Log("play the dam game");
             StartMatchMaker();
             matchMaker.ListMatches(0, 10, "", true, 0, 0, OnMatchList);
         }
 
 #elif UNITY_IOS || UNITY_ANDROID
         Touch touch = Input.GetTouch(0);
-        if ((touch.phase == TouchPhase.Began) && inLobby)
-        { //hardcode this button FOREVER :o
+        if ((touch.phase == TouchPhase.Began) && inLobby && !IsClientConnected() && spaceTimer >= spaceCooldown){
+			spaceTimer = 0f;
             Debug.Log("play the dam game");
             StartMatchMaker();
             matchMaker.ListMatches(0, 10, "", true, 0, 0, OnMatchList);
         }
 #endif
 
-
+		spaceTimer += Time.deltaTime;
 
 		// if(numPlayers == matchSize){
 		// 	inLobby = false;
@@ -68,7 +72,8 @@ public class LobbyManager : NetworkManager {
 
 
 
-	public void StartGame(){
+	public IEnumerator StartGame(){
+		yield return new WaitForSeconds(2f);
 		inLobby = false;
 		Debug.Log("starting game !!!");
 		foreach(PlayerIdentification pid in FindObjectsOfType<PlayerIdentification>()){
@@ -128,5 +133,8 @@ public class LobbyManager : NetworkManager {
 
 	
 	
-	
+	public void Quit(){
+        StopHost();
+		inLobby = true;
+	}
 }

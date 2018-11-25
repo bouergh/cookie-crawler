@@ -31,7 +31,7 @@ public class PlayerController : NetworkBehaviour {
 
 	// Update is called once per frame
     void Update () {
-        if (!isLocalPlayer) {
+        if (!isLocalPlayer || LobbyManager.singleton.inLobby) {
             return;
         }
         checkInput();

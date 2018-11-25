@@ -21,4 +21,9 @@ public class FireBall : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        CookieController.singleton.transform.position = CookieController.singleton.initialPosition;
+    }
 }
