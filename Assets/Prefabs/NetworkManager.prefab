@@ -139,7 +139,7 @@ MonoBehaviour:
   isNetworkActive: 0
   matchMaker: {fileID: 0}
   inLobby: 1
-  cookieMatchName: cookie2
+  cookieMatchName: cookie3
   spawnPositions:
   - {fileID: 0}
   - {fileID: 0}
